@@ -4,8 +4,7 @@ import { Button } from "../Buttons/Button"
 
 export const TablePost = ({ dataHead, dataBody, onDelete, onUpdateStatus }) => {
 
-  console.log({dataBody})
-  return(
+  return (
     <table className="table">
       <thead>
         <tr className="thead-tr">
@@ -28,13 +27,13 @@ export const TablePost = ({ dataHead, dataBody, onDelete, onUpdateStatus }) => {
               <Badges variant={post.status} />
             </td>
             <td className="tbody-td space-x-2">
-              <button className="btn btn-default" onClick={() => onDelete(post._id)}><TrashIcon className="h-4 w-4" /></button>
-              <button className="btn btn-default" onClick={() => onUpdateStatus(post._id, "newStatus")}><CheckIcon className="h-4 w-4" /></button>
-              <button className="btn btn-default"><PencilIcon className="h-4 w-4" /></button>
+              <Button variant="default" label={<TrashIcon className="h-4 w-4" />} onClick={() => onDelete(post._id)} />
+              <Button variant="default" label={<CheckIcon className="h-4 w-4" />} onClick={() => onUpdateStatus(post._id, post.status)} />
+              <Button variant="default" label={<PencilIcon className="h-4 w-4" />} />
             </td>
           </tr>
         ))}
       </tbody>
     </table>
-  )
-}
+  );
+};

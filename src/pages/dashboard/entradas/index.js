@@ -3,7 +3,6 @@ import axios from "axios";
 import DashDefault from "@/layouts/DashLayout";
 import { TablePost } from "@/components/posts/TablePost";
 import { useFetch } from "@/hooks/useFetch";
-import Link from "next/link";
 import { PanelHeader } from "@/components/Panel/PanelHeader";
 
 export default function PostsListPage() {
@@ -12,26 +11,25 @@ export default function PostsListPage() {
   const columns = ['Imagen', 'Titulo', 'Estado', 'Acciones'];
 
   const handleDelete = async (postId) => {
-    console.log('clicking')
     try {
-      await axios.delete(`/api/posts/${postId}`);
+      await axios.delete('/api/posts', { data: { id: postId } });
       refetch();
       console.log("Post deleted successfully");
     } catch (error) {
       console.error("Failed to delete post", error);
     }
-  };
+  };  
   
 
   const handleStatusUpdate = async (postId, newStatus) => {
     try {
-      await axios.put(`/api/posts`, { id: postId, status: newStatus });
+      await axios.put('/api/posts', { id: postId, status: newStatus });
       refetch();
       console.log("Post status updated successfully");
     } catch (error) {
       console.error("Failed to update post status", error);
     }
-  };
+  };  
 
   if (!data) return null;
 
