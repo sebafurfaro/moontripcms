@@ -56,7 +56,7 @@ export const RegisterForm = () => {
         placeholder={field.placeholder}
         onChange={handleChange} />
       ))}
-      <Button variant="info" label="Ingresar" type="submit" />
+      <Button variant="info" label="Registrar usuario" type="submit" />
     </form>
   )
 }

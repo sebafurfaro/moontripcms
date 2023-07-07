@@ -5,6 +5,23 @@ import { InputField } from "@/components/forms/InputField"
 import { useRouter } from "next/router"
 import { Alerts } from "@/components/Alerts/Alerts"
 
+async function authenticate(username, password) {
+  try {
+    const response = await axios.post('/api/authentication', {
+      username,
+      password
+    })
+    if (response.status === 200) {
+      return response.data.message
+    } else {
+      throw new Error(response.data.error)
+    }
+  } catch (error) {
+    console.error('Error during authentication', error)
+    throw new Error('Las credenciales son inválidas')
+  }
+}
+
 export const LoginForm = () => {
 
   const [ username, setUsername ] = useState('')
@@ -12,27 +29,25 @@ export const LoginForm = () => {
   const [ errorFetch, setErrorFetch ] = useState('')
   const router = useRouter()
 
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    axios.post('/api/authentication')
-    .then(function (response) {
-
-      console.log(response)
-      const data = response
-
-      if (data.username === username && data.password === password) {
-        localStorage.setItem('isLoggedIn', 'true')
-        router.push('/dashboard')
-      }
-    })
-    .catch(function (error) {
-      setErrorFetch('El usuario o la clave son inválidos')
-    })
-    .finally(function () {
-      // siempre sera executado
-    });
-
+    try {
+      await authenticate(username, password)
+      localStorage.setItem('isLoggedIn', 'true')
+      localStorage.setItem('username',username)
+      router.push('/dashboard')
+    } catch (error) {
+      setErrorFetch(error.message)
+    }
   }
 
   return(
@@ -47,16 +62,16 @@ export const LoginForm = () => {
         isRequired={true}
         autoComplete="false"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={handleUsernameChange}
         className={errorFetch ? 'border-red-500': ''}
       />
       <InputField
         type="password"
-        name="userPassword"
+        name="password"
         placeholder="Clave"
         isRequired={true}
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handlePasswordChange}
         className={errorFetch ? 'border-red-500': ''}
       />
       <Button variant="info" label="Ingresar" type="submit" />

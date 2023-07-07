@@ -1,4 +1,4 @@
-import { RandomImage } from "@/components/RandomImage";
+//import { RandomImage } from "@/components/RandomImage";
 import { LoginForm } from "./components/loginRegister/LoginForm";
 import LoginLayout from "@/layouts/LoginLayout";
 import { useState } from "react";
@@ -20,7 +20,9 @@ export default function LoginPage() {
         <button onClick={handleChangeForm} className="btn btn-link">{changeForm ? 'Registrarse' : 'Iniciar sesión'}</button>
       </div>
       <div className="md:col-span-2 relative overflow-hidden">
-        {/* <RandomImage className={'absolute top-0 left-0 w-full h-full object-cover'}/> */}
+        {/* Activar cuando se pase a produccion
+          <RandomImage className={'absolute top-0 left-0 w-full h-full object-cover'}/>
+        */}
       </div>
     </div>
   )

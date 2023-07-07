@@ -8,14 +8,8 @@ export default async (req, res) => {
 
     if (req.method === "POST") {
       // Insert a new post
-      const { title, summary, resume, urlImage, status } = req.body;
-      await collection.insertOne({
-        title,
-        summary,
-        resume,
-        urlImage,
-        status
-      });
+      const { name, phone, email, avatar, username, password} = req.body;
+      await collection.insertOne({name, phone, email, avatar, username, password});
       res.status(200).json({ message: "Data inserted successfully" });
 
     } else if (req.method === "GET") {

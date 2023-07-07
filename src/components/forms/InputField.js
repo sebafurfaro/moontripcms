@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const InputField = ({ type, name, placeholder, isRequired, onChange, hasIcon, label, className }) => {
+export const InputField = ({ type, name, placeholder, isRequired, onChange, hasIcon, label, className, value }) => {
   return(
     <div className="form-group">
       <input
@@ -11,6 +11,7 @@ export const InputField = ({ type, name, placeholder, isRequired, onChange, hasI
         required={isRequired}
         autoComplete="false"
         label={label}
+        value={value}
         onChange={onChange} />
         {hasIcon && 
           <img

@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const DropdownMenu = ({ dropdownItems }) => {
+export const Accordion = ({ dropdownItems }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const router = useRouter();
 
@@ -65,5 +65,3 @@ const DropdownMenu = ({ dropdownItems }) => {
     </div>
   );
 };
-
-export default DropdownMenu;
