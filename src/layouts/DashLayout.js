@@ -6,9 +6,14 @@ import { Sidebar } from "@/components/forDashboard/Sidebar";
 import { Spinner } from "@/components/Spinner";
 
 const DashDefault = ({ children }) => {
+  const [ hideSidebar, setHideSidebar ] = useState(false)
   const [ isLoading, setIsLoading ] = useState(true);
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const router = useRouter();
+
+  const closeSidebar = () => {
+    setHideSidebar(!hideSidebar)
+  }
 
   const handleLogout = () => {
     setIsLoggedIn(false)
@@ -39,12 +44,10 @@ const DashDefault = ({ children }) => {
 
   return (
     <div className="relative bg-slate-100">
-      <Header handleLogout={handleLogout} />
-      <div className="w-full min-h-screen grid grid-cols-12 overflow-x-hidden pt-11">
-        <Sidebar
-          className={`col-span-2 transition-transform duration-500 ease-in-out`}
-        />
-        <main className={`col-span-10 transition-all duration-500 ease-in-out`}>
+      <Header handleLogout={handleLogout} closeSidebar={closeSidebar} />
+      <div className={`${hideSidebar ? 'active' : ''} layout w-full min-h-screen overflow-x-hidden pt-11`}>
+        <Sidebar hideSidebar={hideSidebar} className={`${hideSidebar ? 'w-[66px]' : 'w-[280px]'} pl-[8px] transition-all duration-500 ease-in-out`}/>
+        <main className={`main ${hideSidebar ? 'pl-[66px]' : 'pl-[280px]'} transition-all duration-500 ease-in-out`}>
           <div className="p-4">{children}</div>
         </main>
       </div>

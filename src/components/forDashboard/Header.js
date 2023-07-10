@@ -3,9 +3,8 @@ import axios from 'axios'
 import { Bars3Icon, PowerIcon, SparklesIcon } from "@heroicons/react/24/solid"
 import { Button } from "../Buttons/Button"
 import { Avatar } from "../Avatar"
-import { Dropdown } from '../Dropdown/Dropdown'
 
-export const Header = ({ toggleSidebar, handleLogout }) => {
+export const Header = ({ closeSidebar, handleLogout }) => {
 
   const [ userData, setUserData ] = useState({})
   const [ showLogout, setShowLogout ] = useState(false)
@@ -41,6 +40,7 @@ export const Header = ({ toggleSidebar, handleLogout }) => {
         <Button
           className="bg-transparent border-none"
           variant="default"
+          onClick={closeSidebar}
           label={<Bars3Icon className="h-6 w-6 text-slate-800 " />}
         />
         <h1 className="text-slate-800 text-2xl font-bold uppercase">Moontrip</h1>
@@ -51,7 +51,7 @@ export const Header = ({ toggleSidebar, handleLogout }) => {
           variant="default"
           className="rounded-full bg-transparent border-transparent hover:shadow-inner"
           label={<PowerIcon className='h-4 w-4 text-sky-600' />}
-          onClick={handleLogout}
+          onClick={handleMenuLogout}
         />
       </div>
     </header>

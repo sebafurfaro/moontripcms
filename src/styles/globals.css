@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './styles.css';
+@import './layout.css';
 
 @layer components {
   /* Alerts */
@@ -105,7 +106,7 @@
   }
   /* Sidebar */
   .nav-item {
-    @apply font-light flex items-center space-x-2 px-2.5 py-2 mb-1 rounded-md w-full h-11 transition-all duration-300 ease-in-out hover:bg-blue-950/80
+    @apply font-light flex items-center  w-full transition-all duration-300 ease-in-out
   }
   .active {
     @apply text-blue-400

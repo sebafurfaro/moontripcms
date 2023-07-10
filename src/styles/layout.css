@@ -1,0 +1,50 @@
+/* layout */
+.layout {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+/* sidebar */
+.sidebar {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100vh;
+  padding-top: 4rem;
+  overflow: hidden;
+}
+.sidebar .nav-item {
+  height: 50px;
+  flex-wrap: nowrap;
+  min-width: 100%;
+}
+.sidebar .sidebar-text {
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  flex-wrap: nowrap;
+  transition: opacity 0s linear
+}
+.active .sidebar .sidebar-text {
+  opacity: 0;
+}
+.sidebar .sidebar-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7rem;
+}
+.sidebar .active .sidebar-icon {
+  @apply bg-blue-400 text-white;
+}
+
+/* main */
+.main {
+  height: 100vh;
+  overflow-y: scroll;
+}

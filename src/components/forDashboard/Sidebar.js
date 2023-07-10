@@ -1,17 +1,44 @@
 import { Accordion } from "../Accordion/Accordion"
-import { Management } from "@/data/Management"
-import { UserOptions } from "@/data/UserOptions"
+const { NewspaperIcon, UsersIcon, UserCircleIcon, HomeIcon } = require("@heroicons/react/24/solid");
 
+export const Sidebar = ({ hideSidebar, className }) => {
 
-export const Sidebar = ({ className }) => {
-
+  const Management = [
+    {
+      title: 'Dashboard',
+      icon: <HomeIcon className="w-5 h-5" />,
+      hasDropdown: false,
+      url: '/dashboard'
+    },
+    {
+      title: 'Mi Cuenta',
+      icon: <UserCircleIcon className="w-5 h-5" />,
+      hasDropdown: false,
+      url: '/dashboard/mi-cuenta'
+    },
+    {
+      title: 'Entradas',
+      icon: <NewspaperIcon className="w-5 h-5" />,
+      hasDropdown: true,
+      subItems: [
+        {title: 'Listado', url: '/dashboard/entradas'},
+        {title: 'Crear entrada', url: '/dashboard/entradas/crear'}
+      ]
+    },
+    {
+      title: 'Usuarios',
+      icon: <UsersIcon className="w-5 h-5" />,
+      hasDropdown: true,
+      subItems: [
+        {title: 'Todos', url: '/dashboard/usuarios'},
+        {title: 'Registrar nuevo', url: '/dashboard/usuarios/registro'}
+      ]
+    },
+  ]
 
   return(
-    <div className={`${className} text-white flex flex-col items-start pb-4 px-6 bg-[#2B3445]`}>
-      <h2 className="my-3 uppercase">Admin</h2>
-      <Accordion dropdownItems={UserOptions} />
-      <h2 className="my-3 uppercase border-t border-solid border-slate-600 pt-3 w-full">Vendor</h2>
-      <Accordion dropdownItems={Management} />
+    <div className={`${className} sidebar text-white flex flex-col items-start bg-[#2B3445]`}>
+      <Accordion hideSidebar={hideSidebar} className={'space-y-4'} dropdownItems={Management} />
     </div>
   )
 

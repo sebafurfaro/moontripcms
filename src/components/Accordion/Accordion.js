@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export const Accordion = ({ dropdownItems }) => {
+export const Accordion = ({ hideSidebar, dropdownItems, className }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const router = useRouter();
 
@@ -20,7 +20,7 @@ export const Accordion = ({ dropdownItems }) => {
   };
 
   return (
-    <div className="flex flex-col items-start w-full">
+    <div className={`${className} flex flex-col items-start`}>
       {dropdownItems.map((item, index) => (
         <React.Fragment key={index}>
           {item.hasDropdown ? (
@@ -32,8 +32,8 @@ export const Accordion = ({ dropdownItems }) => {
                 onClick={() => handleDropdownClick(index)}
               >
                 <div className="flex items-center space-x-2">
-                  <span>{item.icon}</span>
-                  <span>{item.title}</span>
+                  <span className='sidebar-icon'>{item.icon}</span>
+                  <span className='sidebar-text'>{item.title}</span>
                 </div>
                 <ChevronDownIcon
                   className={`w-3 h-3 ${
@@ -56,8 +56,10 @@ export const Accordion = ({ dropdownItems }) => {
             </React.Fragment>
           ) : (
             <Link href={item.url} className={`nav-item ${isActiveLink(item.url) ? 'active' : ''}`}>
-              <span>{item.icon}</span>
-              <span>{item.title}</span>
+              <div className="flex items-center space-x-2">
+                <span className='sidebar-icon'>{item.icon}</span>
+                <span className='sidebar-text'>{item.title}</span>
+              </div>
             </Link>
           )}
         </React.Fragment>

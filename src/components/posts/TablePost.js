@@ -16,6 +16,7 @@ export const TablePost = ({ dataHead, dataBody, onDelete, onUpdateStatus }) => {
       <tbody>
         {dataBody.map((post, index) => (
           <tr className="tbody-tr" key={index}>
+            {console.log(post.title, post._id)}
             <td className="tbody-td">
               <img
                 src={post.urlImage}

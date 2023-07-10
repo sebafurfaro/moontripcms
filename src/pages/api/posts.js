@@ -26,13 +26,14 @@ export default async (req, res) => {
     } else if (req.method === "PUT") {
       // Update status of a post
       const { id, status } = req.body;
-      await collection.updateOne({ _id: id }, { $set: { status } });
+      await collection.updateOne({ id }, { $set: { status } });
       res.status(200).json({ message: "Post status updated successfully" });
 
     } else if (req.method === "DELETE") {
       // Delete a post
       const { id } = req.body;
-      await collection.deleteOne({ _id: id });
+      await collection.deleteOne({ id });
+      console.log('id delete', id)
       res.status(200).json({ message: "Post deleted successfully" });
 
     } else {
