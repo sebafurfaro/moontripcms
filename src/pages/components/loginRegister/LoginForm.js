@@ -1,9 +1,9 @@
 import { useState } from "react"
 import axios from "axios"
-import { Button } from "@/components/Buttons/Button"
-import { InputField } from "@/components/forms/InputField"
 import { useRouter } from "next/router"
-import { Alerts } from "@/components/Alerts/Alerts"
+import Input from "@/components/forms/Input"
+import { Alert } from "@/components/Alert"
+
 
 async function authenticate(username, password) {
   try {
@@ -54,27 +54,27 @@ export const LoginForm = () => {
     <form className="flex flex-col space-y-5 w-full" onSubmit={handleSubmit}>
       <h1 className="text-2xl font-bold">Bienvenido!</h1>
       <h2 className="text-base font-thin">Ingresa los datos de acceso para iniciar sesión</h2>
-      {errorFetch && <Alerts severity="danger" content={errorFetch} />}
-      <InputField
+      {errorFetch && <Alert type="danger" label={errorFetch} />}
+      <Input
         type="text"
-        name="username"
-        placeholder="Usuario"
-        isRequired={true}
-        autoComplete="false"
         value={username}
+        name="username"
+        label="Usuario"
+        typeLabel="default"
+        placeholder="Usuario"
+        className={errorFetch ? 'border-red-500': ''}
         onChange={handleUsernameChange}
-        className={errorFetch ? 'border-red-500': ''}
       />
-      <InputField
+      <Input
         type="password"
-        name="password"
-        placeholder="Clave"
-        isRequired={true}
         value={password}
-        onChange={handlePasswordChange}
+        name={'password'}
+        label="Password"
+        typeLabel={'default'}
         className={errorFetch ? 'border-red-500': ''}
+        onChange={handlePasswordChange}
       />
-      <Button variant="info" label="Ingresar" type="submit" />
+      {/* <Button variant="info" label="Iniciar sesión" /> */}
     </form>
   )
 }

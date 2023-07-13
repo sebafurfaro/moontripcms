@@ -1,5 +1,6 @@
-import { Button } from "../Buttons/Button"
-import { InputField } from "../forms/InputField"
+
+import Button from "../button"
+import Input from "../forms/Input"
 import useSubmitForm from "@/hooks/useSubmitForm"
 
 export const SocialLinks = () => {
@@ -8,42 +9,42 @@ export const SocialLinks = () => {
     {
       type: 'url',
       name: 'facebookUrl',
-      hasIcon: '../fb.svg',
+      icon: 'facebook',
       label: 'Facebook',
       placeholder: 'https://facebook.com/cuenta',
     },
     {
       type: 'url',
       name: 'instagramUrl',
-      hasIcon: '../ig.svg',
+      icon: 'instagram',
       label: 'Instagram',
       placeholder: 'https://instagram.com/cuenta',
     },
     {
       type: 'url',
       name: 'youtubeUrl',
-      hasIcon: '../yt.svg',
+      icon: 'youtube',
       label: 'Youtube',
       placeholder: 'https://youtube.com/cuenta',
     },
     {
       type: 'url',
       name: 'twitterUrl',
-      hasIcon: '../tw.svg',
+      icon: 'twitter',
       label: 'Twitter',
       placeholder: 'https://twitter.com/cuenta',
     },
     {
       type: 'url',
       name: 'appstoreUrl',
-      hasIcon: '../appstore.svg',
+      icon: 'appstore',
       label: 'App Store',
       placeholder: 'https://example.com/cuenta',
     },
     {
       type: 'url',
       name: 'playstoreUrl',
-      hasIcon: '../playstore.svg',
+      icon: 'playstore',
       label: 'Play Store',
       placeholder: 'https://example.com/cuenta',
     }
@@ -76,14 +77,14 @@ export const SocialLinks = () => {
       <h2 className="font-semibold text-base">Redes Sociales</h2>
       <div className="grid grid-cols-2 items-center gap-x-4 gap-y-6">
         {social.map((field) => (
-          <InputField
+          <Input
             key={field.name}
             type={field.type}
             name={field.name}
-            hasIcon={field.hasIcon}
             label={field.label}
+            typeLabel={'float'}
             placeholder={field.placeholder}
-            isRequired={false}
+            icon={field.icon}
             onChange={handleChange}
           />
         ))}
@@ -92,23 +93,20 @@ export const SocialLinks = () => {
       <h2 className="font-semibold text-base">App Links</h2>
       <div className="flex items-center space-x-3 justify-between">
         {stores.map((field) => (
-          <InputField
-            key={field.name}
-            type={field.type}
-            name={field.name}
-            hasIcon={field.hasIcon}
-            label={field.label}
-            placeholder={field.placeholder}
-            isRequired={false}
-            onChange={handleChange}
-          />
+          <Input
+          key={field.name}
+          type={field.type}
+          name={field.name}
+          label={field.label}
+          typeLabel={'float'}
+          placeholder={field.placeholder}
+          icon={field.icon}
+          onChange={handleChange}
+        />
         ))}
       </div>
       <div className="mr-auto">
-        <Button
-          variant="info"
-          label="Guardar cambios"
-          type="submit" />
+        <Button variant="info" label="Guardar cambios" type="submit" />
       </div>
     </form>
   )

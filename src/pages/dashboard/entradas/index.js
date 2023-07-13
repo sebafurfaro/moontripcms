@@ -12,16 +12,16 @@ export default function PostsListPage() {
 
   const handleDelete = async (postId) => {
     try {
-      await axios.delete('/api/posts', { data: { id: postId } });
+      await axios.delete('/api/posts', { params: { id: postId } });
       refetch();
       console.log("Post deleted successfully");
     } catch (error) {
       console.error("Failed to delete post", error);
     }
-  };  
-  
+  }; 
 
-  const handleStatusUpdate = async (postId, newStatus) => {
+  const handleStatusUpdate = async (postId) => {
+    const newStatus = "success";
     try {
       await axios.put('/api/posts', { id: postId, status: newStatus });
       refetch();
@@ -39,7 +39,7 @@ export default function PostsListPage() {
         <PanelHeader
           title="Todas las notas"
           className="btn-info"
-          variant="link"
+          variantButton="link"
           urlRedirect="/dashboard/entradas/crear"
           label="Crear nueva" />
         <main>

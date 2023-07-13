@@ -1,6 +1,6 @@
 import { CheckIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid"
 import { Badges } from "../Badge"
-import { Button } from "../Buttons/Button"
+import Button from "../button";
 
 export const TablePost = ({ dataHead, dataBody, onDelete, onUpdateStatus }) => {
 
@@ -25,12 +25,12 @@ export const TablePost = ({ dataHead, dataBody, onDelete, onUpdateStatus }) => {
             </td>
             <td className="tbody-td">{post.title}</td>
             <td className="tbody-td">
-              <Badges variant={post.status} />
+              <Badges variant={post.status} title={post.status === 'pending' ? 'Sin publicar' : 'Publicada'}/>
             </td>
             <td className="tbody-td space-x-2">
-              <Button variant="default" label={<TrashIcon className="h-4 w-4" />} onClick={() => onDelete(post._id)} />
-              <Button variant="default" label={<CheckIcon className="h-4 w-4" />} onClick={() => onUpdateStatus(post._id, post.status)} />
-              <Button variant="default" label={<PencilIcon className="h-4 w-4" />} />
+              <Button variant="info" label={<TrashIcon className="h-4 w-4" />} onClick={() => onDelete(post._id)} />
+              <Button variant="info" label={<CheckIcon className="h-4 w-4" />} onClick={() => onUpdateStatus(post._id, post.status)} />
+              <Button variant="info" label={<PencilIcon className="h-4 w-4" />} />
             </td>
           </tr>
         ))}

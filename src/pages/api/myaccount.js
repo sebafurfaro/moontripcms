@@ -8,8 +8,8 @@ export default async (req, res) => {
     const collection = db.collection("myaccount");
     
     if (req.method === "POST") {
-      const { name, email, confirmEmail, phone, avatar, password, confirmPassword, username } = req.body;
-      await collection.insertOne({ name, email, confirmEmail, phone, avatar, password, confirmPassword, username });
+      const { name, email, phone, avatar, password, username } = req.body;
+      await collection.insertOne({ name, email, phone, avatar, password, username });
       res.status(200).json({ message: "Data inserted successfully" });
     } else if (req.method === "GET") {
       const data = await collection.find({}).toArray();

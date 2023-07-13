@@ -5,6 +5,7 @@ export default async (req, res) => {
     const client = await clientPromise;
     const db = client.db();
     const collection = db.collection("posts");
+    var ObjectId = require('mongodb').ObjectId; 
 
     if (req.method === "POST") {
       // Insert a new post
@@ -26,14 +27,13 @@ export default async (req, res) => {
     } else if (req.method === "PUT") {
       // Update status of a post
       const { id, status } = req.body;
-      await collection.updateOne({ id }, { $set: { status } });
+      await collection.updateOne({  _id: new ObjectId(id) }, { $set: { status } });
       res.status(200).json({ message: "Post status updated successfully" });
 
     } else if (req.method === "DELETE") {
       // Delete a post
-      const { id } = req.body;
-      await collection.deleteOne({ id });
-      console.log('id delete', id)
+      const { id } = req.query;
+      await collection.deleteOne({ _id: new ObjectId(id) });
       res.status(200).json({ message: "Post deleted successfully" });
 
     } else {

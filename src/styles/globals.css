@@ -80,13 +80,16 @@
     @apply relative flex flex-col w-full
   }
   .form-control {
-    @apply border border-slate-400 text-black text-base px-5 py-2 placeholder:text-xs placeholder:italic focus:border-blue-500 focus:outline-none transition-all duration-500 ease-in-out
+    @apply w-full border border-slate-400 text-black text-base px-5 py-2 order-1 placeholder:text-xs placeholder:italic focus:border-blue-500 focus:outline-none transition-all duration-500 ease-in-out
   }
   .form-control:focus ~ .float-label {
     @apply text-blue-500
   }
   .float-label {
-    @apply text-xs bg-white py-1 px-2 absolute -top-3 left-3 text-slate-400 transition-all duration-500 ease-in-out
+    @apply text-xs bg-white py-1 px-2 absolute -top-3 left-3 z-30 text-slate-400 transition-all duration-500 ease-in-out
+  }
+  .default-label {
+    @apply mb-1 order-[0]
   }
   /* Tables */
   .table {

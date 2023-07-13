@@ -1,4 +1,4 @@
-import { Button } from "./Buttons/Button"
+//import { Button } from "./button/Button"
 
 export const Cards = ({ image, title, sintesis }) => {
   return(
@@ -7,7 +7,7 @@ export const Cards = ({ image, title, sintesis }) => {
       <div className="p-4 flex flex-col justify-between">
         <h2 className="font-semibold">{title}</h2>
         <p>{sintesis}</p>
-        <Button variant="info" label="Ver más" />
+        {/* <Button variant="info" label="Ver más" /> */}
       </div>
     </div>
   )

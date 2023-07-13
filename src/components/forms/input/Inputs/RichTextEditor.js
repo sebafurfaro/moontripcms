@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export const RichTextEditor = ({ name, isRequired, label }) => {
+const RichTextEditor = ({ name, isRequired, label, typeLabel }) => {
   const [html, setHtml] = useState('');
 
   const handleHtmlChange = (event) => {
@@ -20,11 +20,13 @@ export const RichTextEditor = ({ name, isRequired, label }) => {
         required={isRequired}
       />
       {label && 
-        <fieldset className="float-label">{label}</fieldset>
+        <fieldset className={typeLabel === 'float' ? 'float-label' : 'default-label'}>{label}</fieldset>
       }
     </div>
   );
 };
+
+export default RichTextEditor;
 
 RichTextEditor.propTypes = {
   required: PropTypes.bool,

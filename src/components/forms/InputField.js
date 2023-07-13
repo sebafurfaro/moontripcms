@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 
-export const InputField = ({ type, name, placeholder, isRequired, onChange, hasIcon, label, className, value }) => {
+export const InputField = (props) => {
+
+  const { type, name, placeholder, isRequired, onChange, hasIcon, label, typeLabel, className, value } = props;
+
   return(
     <div className="form-group">
       <input
@@ -9,7 +12,6 @@ export const InputField = ({ type, name, placeholder, isRequired, onChange, hasI
         name={name}
         placeholder={placeholder}
         required={isRequired}
-        autoComplete="false"
         label={label}
         value={value}
         onChange={onChange} />
@@ -20,7 +22,7 @@ export const InputField = ({ type, name, placeholder, isRequired, onChange, hasI
             alt="placeholder image" />
         }
         {label && 
-          <fieldset className="float-label">{label}</fieldset>
+          <fieldset className={typeLabel === 'float' ? 'float-label' : 'default-label'}>{label}</fieldset>
         }
     </div>
   )

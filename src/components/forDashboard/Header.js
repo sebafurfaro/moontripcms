@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Bars3Icon, PowerIcon, SparklesIcon } from "@heroicons/react/24/solid"
-import { Button } from "../Buttons/Button"
 import { Avatar } from "../Avatar"
 
 export const Header = ({ closeSidebar, handleLogout }) => {
@@ -28,31 +27,27 @@ export const Header = ({ closeSidebar, handleLogout }) => {
     fetchUserData()
   }, [])
 
-  const handleMenuLogout = () => {
-    setShowLogout(!showLogout)
-  }
+  // const handleMenuLogout = () => {
+  //   setShowLogout(!showLogout)
+  // }
 
   if (!userData.data) return null;
 
   return(
     <header className="header pr-5 absolute top-0 left-0 z-[50] bg-white w-full flex items-center justify-between shadow-md">
       <div className="flex items-center">
-        <Button
+        <button
           className="bg-transparent border-none"
-          variant="default"
           onClick={closeSidebar}
-          label={<Bars3Icon className="h-6 w-6 text-slate-800 " />}
-        />
+        ><Bars3Icon className="h-6 w-6 text-slate-800 " /></button>
         <h1 className="text-slate-800 text-2xl font-bold uppercase">Moontrip</h1>
       </div>
       <div className="flex items-center space-x-2">
         <Avatar variant="circle" url={userData.data[0].avatar} name={userData.data[0].name} />
-        <Button
-          variant="default"
+        <button
           className="rounded-full bg-transparent border-transparent hover:shadow-inner"
-          label={<PowerIcon className='h-4 w-4 text-sky-600' />}
-          onClick={handleMenuLogout}
-        />
+          onClick={handleLogout}
+        ><PowerIcon className='h-4 w-4 text-sky-600' /></button>
       </div>
     </header>
   )

@@ -1,11 +1,9 @@
-import PropTypes from 'prop-types';
-
-export const TextareaField = ({ name, id, cols, rows, placeholder, onChange, isRequired, label }) => {
+const TextareaField = ({ name, icon, id, cols, rows, placeholder, onChange, isRequired, label }) => {
   return(
     <div className="form-group">
       <textarea
         name={name}
-        className="form-control"
+        className={`from-control`}
         id={id}
         cols={cols}
         rows={rows}
@@ -17,13 +15,9 @@ export const TextareaField = ({ name, id, cols, rows, placeholder, onChange, isR
       {label && 
         <fieldset className="float-label">{label}</fieldset>
       }
+      {icon && icon}
     </div>
   )
 }
 
-TextareaField.proptypes = {
-  label: PropTypes.string
-}
-TextareaField.defaultProps = {
-  label: ''
-}
+export default TextareaField;

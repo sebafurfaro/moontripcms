@@ -1,68 +1,16 @@
 import useSubmitForm from "@/hooks/useSubmitForm"
-import { InputField } from "../forms/InputField"
-import { Button } from "../Buttons/Button"
+import Input from "../forms/Input"
+import { Alert } from "../Alert"
+
 
 export const MyAccountForm = () => {
-  
-  const fields = [
-    {
-      type: 'text',
-      name: 'name',
-      label: 'Nombre y Apellido',
-      placeholder: 'Ej: John Doe',
-    },
-    {
-      type: 'url',
-      name: 'avatar',
-      label: 'Su avatar',
-      placeholder: 'Ej: https://example.com/avatar.jpg',
-    },
-    {
-      type: 'email',
-      name: 'email',
-      label: 'Correo electrónico',
-      placeholder: 'Ej: john@doe.com',
-    },
-    {
-      type: 'email',
-      name: 'confirmEmail',
-      label: 'Confirme su Correo Electrónico',
-      placeholder: 'Ej: john@doe.com',
-    },
-    {
-      type: 'tel',
-      name: 'phone',
-      label: 'Teléfono',
-      placeholder: 'Ej: 1112345678 (sin espacios)',
-    },
-    {
-      type: 'text',
-      name: 'username',
-      label: 'Usuario',
-      placeholder: 'Ej: johndoe'
-    },
-    {
-      type: 'password',
-      name: 'password',
-      label: 'Contraseña',
-      placeholder: 'Ej: ******',
-    },
-    {
-      type: 'confirmPassword',
-      name: 'confirmPassword',
-      label: 'Confirme su contraseña',
-      placeholder: 'Ej: ******',
-    }
-  ]
 
   const initialFormData = {
     name :'',
     email: '',
-    confirmEmail: '',
     phone: '', 
     avatar: '',
-    password: '', 
-    confirmPassword: '', 
+    password: '',  
     username: ''
   }
 
@@ -70,6 +18,7 @@ export const MyAccountForm = () => {
     initialFormData,
     '/api/myaccount'
   )
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -79,23 +28,80 @@ export const MyAccountForm = () => {
     <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
       <h2 className="font-semibold text-base">Mis Datos</h2>
       <div className="grid grid-cols-2 items-center gap-x-4 gap-y-6">
-        {fields.map((field) => (
-          <InputField
-            key={field.name}
-            type={field.type}
-            name={field.name}
-            isRequired={true}
-            placeholder={field.placeholder}
-            label={field.label}
-            autoComplete={false}
-            onChange={handleChange}/>
-        ))}
+        <Input
+          type="text"
+          name="name"
+          label="Nombre y Apellido"
+          typeLabel="float"
+          placeholder="John Doe"
+          onChange={handleChange}
+        />
+        <Input
+          type="url"
+          name="avatar"
+          label="Foto de perfil"
+          typeLabel="float"
+          placeholder="http://example.com"
+          onChange={handleChange}
+        />
+        <Input
+          type="email"
+          name="email"
+          label="Correo electrónico"
+          typeLabel="float"
+          placeholder="john@doe.com"
+          onChange={handleChange}
+        />
+        <Input
+          type="email"
+          name="confirmEmail"
+          label="Confirmar Correo electrónico"
+          typeLabel="float"
+          placeholder="john@doe.com"
+          onChange={handleChange}
+        />
+        <Input
+          type="phone"
+          name="phone"
+          label="Teléfono"
+          typeLabel="float"
+          placeholder="Sin espacios"
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="username"
+          label="Usuario"
+          typeLabel="float"
+          placeholder="johndoe"
+          onChange={handleChange}
+        />
+        <Input
+          type="password"
+          name="password"
+          label="Contraseña"
+          typeLabel="float"
+          placeholder="******"
+          onChange={() => {
+            handleChange;
+          }}
+        />
+        <Input
+          type="password"
+          name="confirmPassword"
+          label="Confirmar contraseña"
+          typeLabel="float"
+          placeholder="****"
+          onChange={() => {
+            handleChange;
+          }}
+        />
       </div>
       <div className="mr-auto">
-        <Button
+        {/* <Button
           variant="info"
           label="Guardar cambios"
-          type="submit" />
+          type="submit" /> */}
       </div>
     </form>
   )

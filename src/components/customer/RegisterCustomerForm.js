@@ -1,4 +1,3 @@
-import { Button } from "../Buttons/Button"
 import { InputField } from "../forms/InputField"
 import useSubmitForm from "@/hooks/useSubmitForm"
 
@@ -79,7 +78,7 @@ export const RegisterCustomerForm = () => {
         ))}
     </div>
     <div className="mr-auto">
-      <Button variant="info" label="Guardar" type="submit"/>
+      {/* <Button variant="info" label="Guardar" type="submit"/> */}
     </div>
   </form>
   )

@@ -1,4 +1,3 @@
-import { Button } from '../Buttons/Button';
 import { InputField } from '../forms/InputField';
 import useSubmitForm from '@/hooks/useSubmitForm';
 
@@ -84,10 +83,10 @@ const SiteConfigForm = () => {
         ))}
       </div>
       <div className="mr-auto">
-        <Button
+        {/* <Button
           variant="info"
           label="Guardar cambios"
-          type="submit" />
+          type="submit" /> */}
       </div>
     </form>
   );
