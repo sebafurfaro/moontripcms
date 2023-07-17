@@ -3,7 +3,9 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export const Accordion = ({ hideSidebar, dropdownItems, className }) => {
+export const Accordion = ({ dropdownItems, className }) => {
+
+  console.log(dropdownItems)
   const [activeDropdown, setActiveDropdown] = useState(null);
   const router = useRouter();
 

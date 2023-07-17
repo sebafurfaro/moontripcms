@@ -9,7 +9,8 @@ export const CreatePostForm = () => {
     summary: '',
     resume: '',
     urlImage: '',
-    status: 'pending'
+    status: 'pending',
+    updatedAt: new Date().toISOString()
   }
 
   const { formData, setFormData, handleSubmit } = useSubmitForm(
@@ -46,6 +47,7 @@ export const CreatePostForm = () => {
           cols={3}
           rows={5}
           label="Síntesis"
+          typeLabel={'float'}
           placeholder="Ingrese la síntesis de la nota"
           isRequired={true}
         />

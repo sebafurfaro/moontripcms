@@ -5,7 +5,7 @@ import useSubmitForm from "@/hooks/useSubmitForm"
 
 export const SocialLinks = () => {
 
-  const fields = [
+  const social = [
     {
       type: 'url',
       name: 'facebookUrl',
@@ -33,7 +33,9 @@ export const SocialLinks = () => {
       icon: 'twitter',
       label: 'Twitter',
       placeholder: 'https://twitter.com/cuenta',
-    },
+    }
+  ]
+  const stores = [
     {
       type: 'url',
       name: 'appstoreUrl',
@@ -49,10 +51,6 @@ export const SocialLinks = () => {
       placeholder: 'https://example.com/cuenta',
     }
   ]
-
-  const social = fields.slice(0,4)
-  const stores = fields.slice(-2)
-
 
   const initialFormData = {
     facebookUrl: '',
@@ -76,34 +74,64 @@ export const SocialLinks = () => {
     <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
       <h2 className="font-semibold text-base">Redes Sociales</h2>
       <div className="grid grid-cols-2 items-center gap-x-4 gap-y-6">
-        {social.map((field) => (
-          <Input
-            key={field.name}
-            type={field.type}
-            name={field.name}
-            label={field.label}
-            typeLabel={'float'}
-            placeholder={field.placeholder}
-            icon={field.icon}
-            onChange={handleChange}
-          />
-        ))}
+        <Input
+          type="url"
+          name="facebookUrl"
+          label="Facebook"
+          typeLabel="float"
+          placeholder="http://facebook.com"
+          icon="facebook"
+          onChange={handleChange}
+        />
+        <Input
+          type="url"
+          name="instagramUrl"
+          label="Instagram"
+          typeLabel="float"
+          placeholder="http://instagram.com"
+          icon="instagram"
+          onChange={handleChange}
+        />
+        <Input
+          type="url"
+          name="youtubeUrl"
+          label="Youtube"
+          typeLabel="float"
+          placeholder="http://youtube.com"
+          icon="youtube"
+          onChange={handleChange}
+        />
+        <Input
+          type="url"
+          name="twitterUrl"
+          label="Twitter"
+          typeLabel="float"
+          placeholder="http://twitter.com"
+          icon="twitter"
+          onChange={handleChange}
+        /> 
       </div>
       <div className="border-b border-slate-300"></div>
       <h2 className="font-semibold text-base">App Links</h2>
       <div className="flex items-center space-x-3 justify-between">
-        {stores.map((field) => (
-          <Input
-          key={field.name}
-          type={field.type}
-          name={field.name}
-          label={field.label}
-          typeLabel={'float'}
-          placeholder={field.placeholder}
-          icon={field.icon}
+        <Input
+          type="url"
+          name="appstoreUrl"
+          label="App Store"
+          typeLabel="float"
+          placeholder="http://appstore.com"
+          icon="appstore"
           onChange={handleChange}
         />
-        ))}
+        <Input
+          type="url"
+          name="playstoreUrl"
+          label="Play Store"
+          typeLabel="float"
+          placeholder="http://playstore.com"
+          icon="playstore"
+          onChange={handleChange}
+        />
       </div>
       <div className="mr-auto">
         <Button variant="info" label="Guardar cambios" type="submit" />

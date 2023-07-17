@@ -1,7 +1,7 @@
 const UrlType = ({ type, icon, placeholder, name, label, typeLabel, className, onChange, value, isRequired }) => {
 
   return(
-    <div className="form-group">
+    <>
       {label && 
         <fieldset className={typeLabel === 'float' ? 'float-label' : 'default-label'}>{label}</fieldset>
       }
@@ -15,7 +15,7 @@ const UrlType = ({ type, icon, placeholder, name, label, typeLabel, className, o
         required={isRequired}
       />
       {icon && icon}
-    </div>
+    </>
   )
 }
 

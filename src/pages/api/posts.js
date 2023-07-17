@@ -9,13 +9,14 @@ export default async (req, res) => {
 
     if (req.method === "POST") {
       // Insert a new post
-      const { title, summary, resume, urlImage, status } = req.body;
+      const { title, summary, resume, urlImage, status, updatedAt } = req.body;
       await collection.insertOne({
         title,
         summary,
         resume,
         urlImage,
-        status
+        status,
+        updatedAt
       });
       res.status(200).json({ message: "Data inserted successfully" });
 

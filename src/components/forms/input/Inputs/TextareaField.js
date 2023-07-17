@@ -1,6 +1,6 @@
 const TextareaField = ({ name, icon, id, cols, rows, placeholder, onChange, isRequired, label }) => {
   return(
-    <div className="form-group">
+    <>
       <textarea
         name={name}
         className={`from-control`}
@@ -16,7 +16,7 @@ const TextareaField = ({ name, icon, id, cols, rows, placeholder, onChange, isRe
         <fieldset className="float-label">{label}</fieldset>
       }
       {icon && icon}
-    </div>
+    </>
   )
 }
 

@@ -4,6 +4,7 @@ import TextareaField from "./Inputs/TextareaField";
 import UrlType from "./Inputs/UrlType";
 import PhoneType from "./Inputs/PhoneType";
 import EmailType from "./Inputs/EmailType";
+import NumberType from "./Inputs/NumberType";
 
 export const TYPES = {
   password: PasswordType,
@@ -11,5 +12,6 @@ export const TYPES = {
   textarea: TextareaField,
   url: UrlType,
   phone: PhoneType,
-  email: EmailType
+  email: EmailType,
+  number: NumberType
 }

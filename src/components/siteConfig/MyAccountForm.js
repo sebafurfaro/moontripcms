@@ -1,6 +1,6 @@
 import useSubmitForm from "@/hooks/useSubmitForm"
 import Input from "../forms/Input"
-import { Alert } from "../Alert"
+import Button from "../button"
 
 
 export const MyAccountForm = () => {
@@ -98,10 +98,10 @@ export const MyAccountForm = () => {
         />
       </div>
       <div className="mr-auto">
-        {/* <Button
+        <Button
           variant="info"
           label="Guardar cambios"
-          type="submit" /> */}
+          type="submit" />
       </div>
     </form>
   )

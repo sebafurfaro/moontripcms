@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import withAuth from "@/lib/withAuth";
 import { useRouter } from "next/router";
-import { Header } from "@/components/forDashboard/Header";
-import { Sidebar } from "@/components/forDashboard/Sidebar";
 import { Spinner } from "@/components/Spinner";
+import { SideNav } from "@/components/forDashboard/SideNav";
+import { SideNavItems } from "@/components/forDashboard/sidenav/SideNavItems";
 
 const DashDefault = ({ children }) => {
   const [ hideSidebar, setHideSidebar ] = useState(false)
   const [ isLoading, setIsLoading ] = useState(true);
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const router = useRouter();
-
-  const closeSidebar = () => {
-    setHideSidebar(!hideSidebar)
-  }
 
   const handleLogout = () => {
     setIsLoggedIn(false)
@@ -44,10 +40,9 @@ const DashDefault = ({ children }) => {
 
   return (
     <div className="relative bg-slate-100">
-      <Header handleLogout={handleLogout} closeSidebar={closeSidebar} />
-      <div className={`${hideSidebar ? 'active' : ''} layout w-full min-h-screen overflow-x-hidden pt-11`}>
-        <Sidebar hideSidebar={hideSidebar} className={`${hideSidebar ? 'w-[66px]' : 'w-[280px]'} pl-[8px] transition-all duration-500 ease-in-out`}/>
-        <main className={`main ${hideSidebar ? 'pl-[66px]' : 'pl-[280px]'} transition-all duration-500 ease-in-out`}>
+      <div className={`layout w-full min-h-screen overflow-x-hidden`}>
+        <SideNav handleLogout={handleLogout} pills={SideNavItems}/>
+        <main className={`pl-[264px] transition-all duration-500 ease-in-out`}>
           <div className="p-4">{children}</div>
         </main>
       </div>

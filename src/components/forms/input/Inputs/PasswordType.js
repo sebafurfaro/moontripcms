@@ -11,7 +11,7 @@ const PasswordType = ({ type, icon, placeholder, name, label, typeLabel, classNa
   }
 
   return(
-    <div className="form-group">
+    <>
     {label && 
       <fieldset className={typeLabel === 'float' ? 'float-label' : 'default-label'}>{label}</fieldset>
     }
@@ -31,7 +31,7 @@ const PasswordType = ({ type, icon, placeholder, name, label, typeLabel, classNa
         </button>
     </div>
     {icon && icon}
-    </div>
+    </>
   )
 }
 

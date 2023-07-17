@@ -6,10 +6,10 @@ import TwitterIcon from "./icons/TwitterIcon";
 import YoutubeIcon from "./icons/YoutubeIcon";
 
 export const ICONS = {
-  facebook: FacebookIcon,
-  instagram: InstagramIcon,
-  youtube: YoutubeIcon,
-  twitter: TwitterIcon,
-  playstore: PlayStoreIcon,
-  appstore: AppStoreIcon
+  facebook: FacebookIcon(),
+  instagram: InstagramIcon(),
+  youtube: YoutubeIcon(),
+  twitter: TwitterIcon(),
+  playstore: PlayStoreIcon(),
+  appstore: AppStoreIcon()
 }

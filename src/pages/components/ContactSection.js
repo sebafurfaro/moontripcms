@@ -1,4 +1,4 @@
-import { InputField } from "@/components/forms/InputField"
+import Input from "@/components/forms/Input"
 import { useFetch } from "@/hooks/useFetch"
 
 export const ContactSection = () => {
@@ -33,7 +33,7 @@ export const ContactSection = () => {
       <div className="grid grid-cols-2 items-center space-y-5 mx-auto px-4 max-w-3xl w-full">
         <form className="grid grid-cols-2 gap-x-4 gap-y-6 w-full">
           {fields.map((field) => (
-            <InputField
+            <Input
               key={field.label}
               label={field.label}
               type={field.type}

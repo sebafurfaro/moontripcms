@@ -1,11 +1,11 @@
-const PhoneType = ({ type, icon, placeholder, name, label, typeLabel, className, onChange, value, isRequired }) => {
+const NumberType = ({ type, icon, placeholder, name, label, typeLabel, className, onChange, value, isRequired }) => {
   return(
     <>
       {label && 
         <fieldset className={typeLabel === 'float' ? 'float-label' : 'default-label'}>{label}</fieldset>
       }
       <input
-        type="phone"
+        type="number"
         className={`form-control ${icon && 'pl-9'} ${className}`}
         placeholder={placeholder}
         onChange={onChange}
@@ -18,4 +18,4 @@ const PhoneType = ({ type, icon, placeholder, name, label, typeLabel, className,
   )
 }
 
-export default PhoneType
+export default NumberType
