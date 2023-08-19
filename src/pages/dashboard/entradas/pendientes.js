@@ -1,7 +1,9 @@
+import { NoContent } from "@/components/NoContent";
 import { PanelHeader } from "@/components/Panel/PanelHeader";
 import { TablePost, Tables } from "@/components/posts/Tables";
 import { useFetch } from "@/hooks/useFetch"
 import DashLayout from "@/layouts/DashLayout"
+import axios from "axios";
 
 export default function PendingPostPage() {
   const { data, refetch } = useFetch('/api/posts')
@@ -9,9 +11,8 @@ export default function PendingPostPage() {
 
   const pendingPosts = data.data.filter((post) => post.status === 'pending')
   
-  const columns = ['ID', 'Titulo', 'Imagen', 'Estado', 'Fecha de publicación'];
-  
-  
+  const columns = ['Titulo', 'Imagen', 'Estado', 'Creada en:'];
+  const excludedKeys = ['summary', 'resume']
 
   return(
     <div className="flex items-center flex-col">
@@ -21,7 +22,7 @@ export default function PendingPostPage() {
           <Tables
             dataHead={columns}
             dataBody={pendingPosts}
-            hasStatus={false}
+            excludedKeys={excludedKeys}
           />
         </main>
       </div>

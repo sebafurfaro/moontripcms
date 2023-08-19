@@ -3,7 +3,7 @@ const TextareaField = ({ name, icon, id, cols, rows, placeholder, onChange, isRe
     <>
       <textarea
         name={name}
-        className={`from-control`}
+        className={`form-control`}
         id={id}
         cols={cols}
         rows={rows}

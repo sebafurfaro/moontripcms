@@ -1,5 +1,6 @@
+import { NoContent } from "@/components/NoContent";
 import { PanelHeader } from "@/components/Panel/PanelHeader";
-import { TablePost, Tables } from "@/components/posts/Tables";
+import { Tables } from "@/components/posts/Tables";
 import { useFetch } from "@/hooks/useFetch"
 import DashLayout from "@/layouts/DashLayout"
 
@@ -9,7 +10,8 @@ export default function PublishPostPage() {
 
   const successPosts = data.data.filter((post) => post.status === 'success')
   
-  const columns = ['ID', 'Titulo', 'Imagen', 'Estado', 'Fecha de publicación'];
+  const columns = ['Titulo', 'Imagen', 'Estado', 'Actualizada el:'];
+  const excludedKeys = ['resume', 'summary']
   
   
 
@@ -18,11 +20,15 @@ export default function PublishPostPage() {
       <div className="panel">
         <PanelHeader title="Entradas publicadas" />
         <main>
+          {successPosts.length > 0 ?
           <Tables
             dataHead={columns}
             dataBody={successPosts}
-            hasStatus={false}
+            excludedKeys={excludedKeys}
           />
+          :
+          <NoContent name="publicadas" />
+          }
         </main>
       </div>
     </div>

@@ -12,8 +12,8 @@ const RichTextEditor = ({ name, isRequired, label, typeLabel }) => {
   return (
     <div className="form-group">
       <div
-        name={name}
         contentEditable
+        name={name}
         className="form-control min-h-[350px]"
         dangerouslySetInnerHTML={{ __html: html }}
         onInput={handleHtmlChange}

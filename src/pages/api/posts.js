@@ -27,8 +27,11 @@ export default async (req, res) => {
 
     } else if (req.method === "PUT") {
       // Update status of a post
-      const { id, status } = req.body;
-      await collection.updateOne({  _id: new ObjectId(id) }, { $set: { status } });
+      const { id, status, updatedAt } = req.body;
+      await collection.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: { status, updatedAt } }
+      );
       res.status(200).json({ message: "Post status updated successfully" });
 
     } else if (req.method === "DELETE") {

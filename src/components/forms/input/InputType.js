@@ -5,6 +5,7 @@ import UrlType from "./Inputs/UrlType";
 import PhoneType from "./Inputs/PhoneType";
 import EmailType from "./Inputs/EmailType";
 import NumberType from "./Inputs/NumberType";
+import RichTextField from "./Inputs/RichTextField";
 
 export const TYPES = {
   password: PasswordType,
@@ -13,5 +14,6 @@ export const TYPES = {
   url: UrlType,
   phone: PhoneType,
   email: EmailType,
-  number: NumberType
+  number: NumberType,
+  richText: RichTextField
 }

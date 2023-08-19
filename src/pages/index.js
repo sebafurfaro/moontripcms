@@ -1,11 +1,14 @@
-import { BlogSection } from "./components/BlogSection";
-import { ContactSection } from "./components/ContactSection";
+import { ClientGrid } from "./components/home/ClientsGrid";
+import { Feature } from "./components/home/Feature";
+import { Hero } from "./components/home/Hero";
 
 export default function Home() {
+
   return (
-    <>
-    <BlogSection />
-    <ContactSection />
-    </>
+    <div>
+      <Hero />
+      <ClientGrid />
+      <Feature />
+    </div>
   )
 }

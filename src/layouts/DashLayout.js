@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Spinner } from "@/components/Spinner";
 import { SideNav } from "@/components/forDashboard/SideNav";
 import { SideNavItems } from "@/components/forDashboard/sidenav/SideNavItems";
+import { TopNav } from "@/components/forDashboard/topnav/TopNav";
 
 const DashDefault = ({ children }) => {
   const [ hideSidebar, setHideSidebar ] = useState(false)
@@ -39,10 +40,11 @@ const DashDefault = ({ children }) => {
   }
 
   return (
-    <div className="relative bg-slate-100">
+    <div className="relative bg-[#f8f8f8]">
       <div className={`layout w-full min-h-screen overflow-x-hidden`}>
-        <SideNav handleLogout={handleLogout} pills={SideNavItems}/>
-        <main className={`pl-[264px] transition-all duration-500 ease-in-out`}>
+        <SideNav pills={SideNavItems}/>
+        <TopNav handleLogout={handleLogout} />
+        <main className={`pl-24 transition-all duration-500 ease-in-out`}>
           <div className="p-4">{children}</div>
         </main>
       </div>

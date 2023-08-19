@@ -3,6 +3,7 @@ import axios from "axios"
 import { useRouter } from "next/router"
 import Input from "@/components/forms/Input"
 import { Alert } from "@/components/Alert"
+import Button from "@/components/button"
 
 
 async function authenticate(username, password) {
@@ -74,7 +75,7 @@ export const LoginForm = () => {
         className={errorFetch ? 'border-red-500': ''}
         onChange={handlePasswordChange}
       />
-      {/* <Button variant="info" label="Iniciar sesión" /> */}
+      <Button variant="info" label="Iniciar sesión" />
     </form>
   )
 }

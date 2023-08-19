@@ -16,7 +16,7 @@ export const useSweetAlert = () => {
       text,
       icon,
       showCloseButton: true,
-      confirmButtonText: 'Confirm',
+      confirmButtonText: 'Aceptar',
     }).then((result) => {
       if (result.isConfirmed && confirmRedirect) {
         router.push(confirmRedirect);
