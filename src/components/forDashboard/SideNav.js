@@ -45,7 +45,7 @@ export const SideNav = ({ pills }) => {
   if (!userData.data) return null;
 
   return (
-    <nav className="fixed top-0 left-0 flex h-screen w-fit shadow-lg overflow-hidden rounded-tr-[20px] rounded-br-[20px]">
+    <nav className="fixed top-0 left-0 flex h-screen w-fit shadow-lg rounded-tr-[20px] rounded-br-[20px] z-[9999]">
       <div className="flex flex-col items-center w-24 px-3 bg-white text-slate-900">
         <Link href="/dashboard/" className="w-10 h-10 my-6 flex items-center justify-center">
           <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -61,6 +61,7 @@ export const SideNav = ({ pills }) => {
           <SideNavTab
             key={item.id}
             label={item.label}
+            title={item.title}
             url={item.url}
             isActive={activeIndex === item.id}
             onClick={() => handlePillClick(item.id, item.url)}

@@ -34,6 +34,7 @@ export const Header = () => {
             <Link href="#contacto">Contacto</Link>
           </li>
         </ul>
+        <Link href="/dashboard" className="ml-auto">Demo</Link>
       </nav>
     </header>
   )

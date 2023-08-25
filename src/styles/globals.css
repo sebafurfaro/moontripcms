@@ -24,7 +24,7 @@
   }
   /* Avatars */
   .avatar {
-    @apply object-cover !w-8 !h-8 overflow-hidden;
+    @apply object-cover w-8 h-8 overflow-hidden;
   }
   .avatar-rounded {
     @apply rounded-full;

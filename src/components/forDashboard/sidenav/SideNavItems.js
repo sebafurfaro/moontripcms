@@ -19,7 +19,7 @@ export const SideNavItems = [
   {
     id: 2,
     label: <NewspaperIcon className="w-5 h-5" />,
-    title: 'Todas las Entradas',
+    title: 'Entradas',
     url: '/dashboard/entradas',
     hasDropdown: true,
     subItems: [

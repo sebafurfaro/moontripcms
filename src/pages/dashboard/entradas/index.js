@@ -53,6 +53,8 @@ export default function PostsListPage() {
     <div className="flex items-center">
       <div className="panel">
         <PanelHeader
+          label="Crear Nota"
+          urlRedirect={'/dashboard/entradas/crear'}
           title="Todas las notas" />
         <main>
           {data.data.length > 0 ?
