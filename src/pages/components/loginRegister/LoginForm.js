@@ -52,7 +52,7 @@ export const LoginForm = () => {
   }
 
   return(
-    <form className="flex flex-col space-y-5 w-full" onSubmit={handleSubmit}>
+    <form className="flex flex-col space-y-5 w-full">
       <h1 className="text-2xl font-bold">Bienvenido!</h1>
       <h2 className="text-base font-thin">Ingresa los datos de acceso para iniciar sesión</h2>
       {errorFetch && <Alert type="danger" label={errorFetch} />}
@@ -75,7 +75,7 @@ export const LoginForm = () => {
         className={errorFetch ? 'border-red-500': ''}
         onChange={handlePasswordChange}
       />
-      <Button variant="info" label="Iniciar sesión" />
+      <Button variant="info" label="Iniciar sesión" onClick={handleSubmit}/>
     </form>
   )
 }

@@ -11,7 +11,7 @@ const Input = ({ type, label, icon, typeLabel, name, placeholder, className, onC
     <div className="form-group">
       <InputType
         label={label}
-        clasName={className}
+        className={className}
         onChange={onChange}
         value={value}
         placeholder={placeholder}

@@ -1,3 +1,4 @@
+import Button from "@/components/button";
 import { useFetch } from "@/hooks/useFetch"
 import Link from "next/link";
 
@@ -9,7 +10,7 @@ export const Header = () => {
 
   return(
     <header className="w-full text-white p-4 border-b-[0.5px] border-b-white/15">
-      <nav className="flex items-center space-x-12">
+      <nav className="flex items-center justify-between space-x-12">
         <div className="brand flex items-center space-x-2">
           <svg className="!w-10" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -34,7 +35,7 @@ export const Header = () => {
             <Link href="#contacto">Contacto</Link>
           </li>
         </ul>
-        <Link href="/dashboard" className="ml-auto">Demo</Link>
+        <Link href="/dashboard" className="px-5 py-1.5 bg-white text-blue-700 font-light tracking-wider hover:bg-white/80 transition duration-300 ease-in-out">Demo</Link>
       </nav>
     </header>
   )

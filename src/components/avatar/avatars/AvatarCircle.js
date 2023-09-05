@@ -1,0 +1,1 @@
+export const AvatarCircle = ({ url, name, className }) => <img src={url} alt={name} className={`avatar avatar-rounded ${className}`} />

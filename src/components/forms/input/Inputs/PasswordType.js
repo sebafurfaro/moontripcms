@@ -5,8 +5,8 @@ const PasswordType = ({ type, icon, placeholder, name, label, typeLabel, classNa
 
   const [ showPass, setShowPass ] = useState(false)
 
-  const handleShowPass = (event) => {
-    event.preventDefault()
+  const handleShowPass = (e) => {
+    e.preventDefault();
     setShowPass(!showPass)
   }
 

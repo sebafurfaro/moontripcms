@@ -47,8 +47,6 @@ export default function PostsListPage() {
 
   if (!data) return null;
 
-  console.log(data.data)
-
   return (
     <div className="flex items-center">
       <div className="panel">

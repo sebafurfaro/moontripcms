@@ -15,5 +15,5 @@ export const TYPES = {
   phone: PhoneType,
   email: EmailType,
   number: NumberType,
-  richText: RichTextField
+  // richText: RichTextField
 }

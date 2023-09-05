@@ -1,0 +1,1 @@
+export const BadgeInfo = ({ label, className }) => <div className={`badge badge-info ${className}`}>{label}</div>

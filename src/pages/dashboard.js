@@ -1,44 +1,27 @@
-import { Card } from "@/components/card/card";
 import { MockAdsDash } from "@/components/forDashboard/mockup/MockAdsDash";
+import { MockPostsDash } from "@/components/forDashboard/mockup/MockPostsDash";
 import { MockUsersDash } from "@/components/forDashboard/mockup/MockUsersDash";
 import { MockVerticalGraphDash } from "@/components/forDashboard/mockup/MockVerticalGraphDash";
-import { useFetch } from "@/hooks/useFetch";
 import DashDefault from "@/layouts/DashLayout";
 
 export default function Dashboard() {
 
-  const { data, refetch } = useFetch('/api/posts')
-  if (!data) return null
-
-  const successPosts = data.data.filter((post) => post.status === 'success')
-  const limitedPosts = successPosts.slice(0, 4)
-
-
   return(
     <div className="space-y-8">
       <h1 className="font-light text-4xl">Bienvenido!</h1>
-      <div className="grid grid-cols-6 grid-rows-3 gap-8">
+      <div className="grid grid-cols-3 gap-4">
         <MockUsersDash />
-        <div className="col-span-4 row-start-2">
+      </div>
+      <div className="grid grid-cols-9 gap-4">
+        <div className="col-span-6">
           <MockAdsDash />
+          <div className="grid gird-cols-4 gap-4">
+            <MockPostsDash />
+          </div>
         </div>
-        <div className="col-span-2 row-span-2 col-start-5 row-start-2">
+        <div className="col-span-3">
           <MockVerticalGraphDash />
         </div>
-        {limitedPosts.map((item, index) => (
-          <div className="row-start-3">
-            <Card
-              key={index}
-              cardImage={true}
-              title={item.title}
-              summary={item.summary}
-              imgPosition={'top'}
-              imgUrl={item.urlImage}
-              imgAlt={item.title}
-              className="first-child:absolute"
-            />
-          </div>
-        ))}
       </div>
     </div>
   )

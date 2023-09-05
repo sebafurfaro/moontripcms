@@ -1,7 +1,7 @@
-import { Badges } from "../Badge";
 import Button from "../button";
 import { CheckIcon, PencilIcon } from "@heroicons/react/24/solid";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import Badge from "../badge";
 
 export const Tables = ({ dataHead, dataBody, onDelete, onUpdateStatus, className, excludedKeys }) => {
   
@@ -14,6 +14,8 @@ export const Tables = ({ dataHead, dataBody, onDelete, onUpdateStatus, className
     });
     return filteredItem;
   });
+
+  console.log(filteredDataBody)
 
   return (
     <table style={{ borderCollapse: 'collapse' }} className={`${className} border border-solid border-slate-200 m-0 p-0 w-full`}>
@@ -35,7 +37,7 @@ export const Tables = ({ dataHead, dataBody, onDelete, onUpdateStatus, className
               }else if (key === 'status') {
                 return (
                   <td className="px-2 py-3" key={innerIndex}>
-                    <Badges variant={value} title={value === 'pending' ? 'Sin publicar' : 'Publicada'} />
+                    <Badge variant={value === 'pending' ? 'warning' : value} label={value === 'pending' ? 'En revisión' : 'Publicada'} />
                   </td>
                 );
               } else if (key === 'urlImage') {

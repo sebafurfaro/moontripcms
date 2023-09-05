@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { SideNavTab } from "./sidenav/SideNavTab";
-import { Avatar } from "../Avatar";
-import { PowerIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Avatar from "../avatar";
 
 export const SideNav = ({ pills }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -68,7 +67,12 @@ export const SideNav = ({ pills }) => {
           />
         ))}
         <div className="absolute bottom-0 flex flex-col">
-          <Avatar className="!w-12 !h-12 mx-auto mb-4" variant="circle" url={userData.data[0].avatar} name={userData.data[0].name} />
+          {/* <Avatar
+            variant="circle"
+            url={userData.data[0].avatar}
+            name={userData.data[0].name}
+            className="!w-12 !h-12 mx-auto mb-4"
+          /> */}
         </div>
       </div>
     </nav>

@@ -34,7 +34,7 @@
   }
   /* Badges */
   .badge {
-    @apply w-[100px] flex items-center justify-center text-xs font-medium px-2.5 py-0.5 rounded-full border border-solid
+    @apply w-fit flex items-center justify-center text-xs font-medium px-2.5 py-0.5 rounded-full border border-solid
   }
   .badge-info {
     @apply bg-blue-100 border-blue-600 text-blue-600
@@ -70,6 +70,9 @@
   .btn-default {
     @apply !text-white bg-sky-400 border-sky-400 px-2.5 py-2.5;
   }
+  .btn-filter {
+    @apply bg-white text-slate-800 hover:opacity-90 shadow-none hover:shadow-none border border-slate-300;
+  }
   /* Cards */
   .card {
     @apply bg-white p-4 w-full flex flex-col items-center justify-center rounded-lg;
@@ -91,6 +94,15 @@
   .default-label {
     @apply mb-1 order-[0]
   }
+
+  /* Progress Bar */
+  .progress {
+    @apply relative flex rounded-full w-full h-2
+  }
+  .progress-bar {
+    @apply absolute top-0 left-0 bottom-0 my-auto rounded-full h-1.5
+  }
+
   /* Tables */
   .table {
     @apply border bg-slate-50 dark:bg-slate-700 border-solid border-slate-200 m-0 p-0 w-full;
